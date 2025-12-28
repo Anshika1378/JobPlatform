@@ -28,7 +28,7 @@ function Navbar() {
         <img src={logo} alt="Logo" className="h-10 w-20 ml-20" />
 
         <h1 className="cursor-pointer hover:text-purple-500">Jobs</h1>
-        <h1 className="cursor-pointer hover:text-purple-500">Companies</h1>
+        <h1 className="cursor-pointer hover:text-purple-500">Companies </h1>
         <h1 className="cursor-pointer hover:text-purple-500">Services</h1>
       </div>
 
