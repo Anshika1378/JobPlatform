@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dropdown } from "antd";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import logo from "../assets/media/Jobiffi.png.png";
+import logo from "../assets/media/New_Brand_logo_-_16060-removebg.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,20 +17,20 @@ function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
 
         {/* Logo */}
-        <div className="flex items-center gap-4">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+        <div className="flex items-center gap-8">
+          <img src={logo} alt="Logo" className="h-12 w-auto mt-2" />
 
           {/* Desktop Menu */}
-          <div className="hidden sm:flex items-center gap-4">
-            <h1 className="cursor-pointer hover:text-purple-500 text-sm sm:text-base">Jobs</h1>
-            <h1 className="cursor-pointer hover:text-purple-500 text-sm sm:text-base">Companies</h1>
-            <h1 className="cursor-pointer hover:text-purple-500 text-sm sm:text-base">Services</h1>
+          <div className="hidden sm:flex items-center gap-8">
+            <h1 className="cursor-pointer hover:text-black text-sm sm:text-base text-gray-700">Jobs</h1>
+            <h1 className="cursor-pointer hover:text-black text-sm sm:text-base text-gray-700">Companies</h1>
+            <h1 className="cursor-pointer hover:text-black text-sm sm:text-base text-gray-700">Services</h1>
           </div>
         </div>
 
         {/* Right Buttons */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition text-sm sm:text-base">
+          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-900 text-blue-900   transition font-semibold">
             Login
           </button>
 
@@ -39,7 +39,7 @@ function Navbar() {
           </button>
 
           <Dropdown menu={{ items: employerItems }} trigger={["hover"]} placement="bottom">
-            <div className="hidden sm:flex items-center gap-1 cursor-pointer hover:text-blue-500 text-sm sm:text-base">
+            <div className="hidden sm:flex items-center gap-1 cursor-pointer hover:text-black text-sm sm:text-base text-gray-700">
               For Employers
               <ChevronDownIcon className="w-4 h-4 text-gray-400" />
             </div>
