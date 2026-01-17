@@ -5,11 +5,21 @@ function MainHead() {
   return (
     <>
       <div className="container mx-auto px-3 flex flex-col items-center">
-        <h1 className="text-black font-bold text-2xl sm:text-4xl mt-14 text-center">
-          Find your dream job now
+        <h1 className="mt-14 rounded-2xl border-2 border-blue-700 bg-blue-100 text-blue-600 font-bold px-4">1+ jobs available</h1>
+        <h1 className="text-black font-bold text-2xl sm:text-4xl mt-2  text-center">
+          Your ideal job is{" "}
+          <span
+            className="
+              bg-gradient-to-r from-blue-800 via-blue-600 to-blue-900
+              bg-clip-text text-transparent
+            "
+          >
+            just click away
+          </span>
         </h1>
-        <p className="mt-2 text-base sm:text-xl text-center">
-          1 lakh+ jobs for you to explore
+
+        <p className="mt-2 text-base sm:text-sm text-center">
+          Discover opportunities from top companies and kickstart your carrer <br />journey 
         </p>
 
         {/* 🔍 Search Bar – always row */}
@@ -53,10 +63,13 @@ function MainHead() {
               >
                 <option value="">Experience</option>
                 <option>Fresher</option>
-                <option>1 Year</option>
-                <option>2 Years</option>
-                <option>3 Years</option>
-                <option>4+ Years</option>
+                <option>0 - 3 Years</option>
+                <option>3 - s Years</option>
+                <option>5 - 8 Years</option>
+                <option>8 - 12 Years</option>
+                <option>12 - 18 Years</option>
+                <option>18 - 25 Years</option>
+                <option>25+ Years</option>
               </select>
             </div>
 
