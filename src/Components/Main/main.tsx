@@ -1,40 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 import { CiLocationOn, CiSearch } from "react-icons/ci";
 
+
 // 📍 Real Job Hubs (India)
 const locations = [
+  "Remote",
+  "Hybrid",
   "New Delhi",
-  "Delhi / NCR",
-  "Mumbai",
   "Bangalore",
+  "Delhi NCR",
+  "Mumbai",
   "Hyderabad",
   "Chennai",
   "Pune",
-  "Kolkata",
-  "Ahmedabad",
-  "Jaipur",
-  "Chandigarh",
-  "Noida",
   "Gurgaon",
+  "Noida",
   "Faridabad",
   "Ghaziabad",
-  "Dehradun",
-  "Durgapur",
-  "Dhanbad",
-  "Udaipur (Dharamjaigarh)",
-  "Indore",
-  "Bhubaneswar",
+  "Chandigarh",
+  "Ahmedabad",
+  "Vadodara",
+  "Surat",
   "Coimbatore",
   "Kochi",
   "Trivandrum",
   "Vizag",
   "Vijayawada",
-  "Remote",
-  "Hybrid",
+  "Kolkata",
+  "Bhubaneswar",
+  "Indore",
+  "Jaipur",
+  "Mohali",
 ];
 
-// 🎓 Experience options (FINAL FORMAT)
-const experiences = [
+// 🎓 Experience options
+const experienceOptions = [
   "Fresher",
   "0 - 3 Years",
   "3 - 5 Years",
@@ -46,16 +46,16 @@ const experiences = [
 ];
 
 function MainHead() {
-  /* ================= EXPERIENCE ================= */
-  const [experienceOpen, setExperienceOpen] = useState(false);
-  const [selectedExperience, setSelectedExperience] = useState("");
-  const experienceRef = useRef<HTMLDivElement | null>(null);
-
-  /* ================= LOCATION (UNCHANGED) ================= */
+  // 🔹 Location dropdown state
+  const [locationOpen, setLocationOpen] = useState(false);
   const [locationSearch, setLocationSearch] = useState("");
-  const [showLocationDropdown, setShowLocationDropdown] = useState(false);
   const locationRef = useRef<HTMLDivElement | null>(null);
 
+  // 🔹 Experience dropdown state
+  const [experienceOpen, setExperienceOpen] = useState(false);
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+
+  // 🔹 Filtered locations
   const filteredLocations =
     locationSearch.trim().length > 0
       ? locations.filter((loc) =>
@@ -63,40 +63,39 @@ function MainHead() {
         )
       : [];
 
-  /* ================= OUTSIDE CLICK ================= */
+  // ✅ Close dropdowns on outside click
   useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      const target = e.target as Node;
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
 
-      // ✅ EXPERIENCE: close + RESET to "Select experience"
+      if (
+        locationRef.current &&
+        !locationRef.current.contains(target)
+      ) {
+        setLocationOpen(false);
+      }
+
       if (
         experienceRef.current &&
         !experienceRef.current.contains(target)
       ) {
         setExperienceOpen(false);
-        setSelectedExperience("");
-      }
-
-      // ❌ LOCATION: untouched
-      if (
-        locationRef.current &&
-        !locationRef.current.contains(target)
-      ) {
-        setShowLocationDropdown(false);
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("mousedown", handleClickOutside);
     return () =>
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
     <div className="container mx-auto px-3 flex flex-col items-center">
+      {/* Badge */}
       <h1 className="mt-14 rounded-2xl border-2 border-blue-700 bg-blue-100 text-blue-600 font-bold px-4">
         1+ jobs available
       </h1>
 
+      {/* Heading */}
       <h1 className="text-black font-bold text-2xl sm:text-4xl mt-2 text-center">
         Your ideal job is{" "}
         <span className="bg-gradient-to-r from-blue-800 via-blue-600 to-blue-900 bg-clip-text text-transparent">
@@ -104,96 +103,100 @@ function MainHead() {
         </span>
       </h1>
 
-      <p className="mt-2 text-sm text-center">
+      {/* Subtitle */}
+      <p className="mt-2 text-base sm:text-sm text-center">
         Discover opportunities from top companies and kickstart your career
+        <br />
+        journey
       </p>
 
-      {/* ================= SEARCH BAR ================= */}
-      <div className="mt-6 w-full max-w-4xl rounded-full shadow-lg bg-white flex items-center px-2">
+      {/* 🔍 Search Bar */}
+      <div className="mt-6 w-full max-w-4xl rounded-2xl shadow-lg">
+        <div className="w-full bg-white rounded-2xl border border-gray-200 flex items-center">
 
-        {/* Skills */}
-        <div className="flex items-center flex-1 px-3">
-          <CiSearch className="text-gray-400 text-lg mr-2" />
-          <input
-            type="text"
-            placeholder="Skills / Designation / Companies"
-            className="w-full h-11 outline-none text-sm"
-          />
-        </div>
-
-        <div className="h-6 w-px bg-gray-200" />
-
-        {/* ================= EXPERIENCE ================= */}
-        <div
-          ref={experienceRef}
-          className="relative flex-1 px-3"
-        >
-          <div
-            onClick={() => setExperienceOpen((prev) => !prev)}
-            className="h-11 flex items-center justify-between text-sm text-gray-500 cursor-pointer select-none"
-          >
-            <span>{selectedExperience || "Select experience"}</span>
-            <span className="text-xs ml-2">▼</span>
-          </div>
-
-          {experienceOpen && (
-            <div className="absolute top-12 left-0 w-full bg-white rounded-xl shadow-xl z-30">
-              {experiences.map((exp) => (
-                <div
-                  key={exp}
-                  onClick={() => {
-                    setSelectedExperience(exp);
-                    setExperienceOpen(false);
-                  }}
-                  className="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
-                >
-                  {exp}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="h-6 w-px bg-gray-200" />
-
-        {/* ================= LOCATION (UNCHANGED) ================= */}
-        <div ref={locationRef} className="relative flex-1 px-3">
-          <div className="flex items-center">
-            <CiLocationOn className="text-gray-400 text-lg mr-2" />
+          {/* Skills */}
+          <div className="relative flex items-center min-w-[220px] flex-1">
+            <CiSearch className="absolute left-3 text-gray-400 text-lg" />
             <input
               type="text"
-              placeholder="Enter location"
-              value={locationSearch}
-              onChange={(e) => {
-                setLocationSearch(e.target.value);
-                setShowLocationDropdown(true);
-              }}
-              className="w-full h-11 outline-none text-sm"
+              placeholder="Skills / Designation / Companies"
+              className="w-full h-10 sm:h-12 pl-9 pr-3 outline-none text-sm"
             />
           </div>
 
-          {showLocationDropdown && filteredLocations.length > 0 && (
-            <div className="absolute top-12 left-0 w-full bg-white rounded-xl shadow-xl z-30 max-h-60 overflow-y-auto">
-              {filteredLocations.map((loc) => (
-                <div
-                  key={loc}
-                  onClick={() => {
-                    setLocationSearch(loc);
-                    setShowLocationDropdown(false);
-                  }}
-                  className="px-4 py-2 text-sm cursor-pointer hover:bg-gray-100"
-                >
-                  {loc}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
+          <div className="h-6 w-px bg-gray-200"></div>
 
-        {/* Search Button */}
-        <button className="ml-2 px-6 h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-semibold flex items-center">
-          <CiSearch className="mr-1" /> Search
-        </button>
+          {/* Experience */}
+          <div
+            ref={experienceRef}
+            className="relative min-w-[160px] flex-1"
+          >
+            <div
+              onClick={() => setExperienceOpen((prev) => !prev)}
+              className="h-10 sm:h-12 px-3 flex items-center cursor-pointer text-sm text-gray-500"
+            >
+              Select experience
+            </div>
+
+            {experienceOpen && (
+              <div className="absolute z-30 mt-2 w-full bg-white rounded-lg shadow-lg">
+                {experienceOptions.map((exp) => (
+                  <div
+                    key={exp}
+                    onClick={() => setExperienceOpen(false)}
+                    className="px-4 py-2 text-sm cursor-pointer hover:bg-blue-50"
+                  >
+                    {exp}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="h-6 w-px bg-gray-200"></div>
+
+          {/* 📍 Location (Searchable + Outside Click Close) */}
+          <div
+            ref={locationRef}
+            className="relative min-w-[180px] flex-1"
+          >
+            <div className="flex items-center h-10 sm:h-12 pl-9 pr-3">
+              <CiLocationOn className="absolute left-3 text-gray-400 text-lg" />
+              <input
+                type="text"
+                placeholder="Search location..."
+                value={locationSearch}
+                onChange={(e) => {
+                  setLocationSearch(e.target.value);
+                  setLocationOpen(true);
+                }}
+                className="w-full outline-none text-sm"
+              />
+            </div>
+
+            {locationOpen && filteredLocations.length > 0 && (
+              <div className="absolute z-30 mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                {filteredLocations.map((loc) => (
+                  <div
+                    key={loc}
+                    onClick={() => {
+                      setLocationSearch(loc);
+                      setLocationOpen(false);
+                    }}
+                    className="px-4 py-2 text-sm cursor-pointer hover:bg-blue-50"
+                  >
+                    {loc}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Search Button */}
+          <button className="min-w-[120px] h-10 sm:h-12 px-5 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-semibold text-sm rounded-r-2xl hover:from-blue-800 hover:to-blue-700 transition">
+            Search
+          </button>
+        </div>
       </div>
     </div>
   );
