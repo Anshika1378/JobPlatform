@@ -1,3 +1,4 @@
+import Footer from "./Components/Footer/footer";
 import CategoryCompany from "./Components/Main/Category";
 import MainHead from "./Components/Main/main";
 import Navbar from "./Components/Nav";
@@ -13,6 +14,7 @@ function App() {
       <CategoryCompany />
       <TopCompanies />
       <JobCompanines />
+      <Footer />
       </div>
     </>
   )
