@@ -54,7 +54,7 @@ function MainHead() {
   const [experienceOpen, setExperienceOpen] = useState(false);
   const experienceRef = useRef<HTMLDivElement | null>(null);
 
-  // ✅ ADDED: Selected experience state
+  // ✅ Selected experience (FIX)
   const [selectedExperience, setSelectedExperience] = useState("");
 
   // 🔹 Filtered locations
@@ -65,7 +65,7 @@ function MainHead() {
         )
       : [];
 
-  // ✅ Close dropdowns on outside click
+  // ✅ Outside click handling
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
@@ -115,7 +115,6 @@ function MainHead() {
       {/* 🔍 Search Bar */}
       <div className="mt-6 w-full max-w-4xl rounded-2xl shadow-lg">
         <div className="w-full bg-white rounded-2xl border border-gray-200 flex items-center">
-
           {/* Skills */}
           <div className="relative flex items-center min-w-[220px] flex-1">
             <CiSearch className="absolute left-3 text-gray-400 text-lg" />
@@ -146,7 +145,7 @@ function MainHead() {
                   <div
                     key={exp}
                     onClick={() => {
-                      setSelectedExperience(exp); // ✅ ADDED
+                      setSelectedExperience(exp);
                       setExperienceOpen(false);
                     }}
                     className="px-4 py-2 text-sm cursor-pointer hover:bg-blue-50"
@@ -214,3 +213,4 @@ function MainHead() {
 }
 
 export default MainHead;
+
