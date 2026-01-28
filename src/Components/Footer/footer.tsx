@@ -3,8 +3,8 @@ import logo from "../../assets/media/New_Brand_logo_-_16060-removebg.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+    <footer className="bg-white mt-10 ">
+      <div className="max-w-7xl  py-10 mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
         {/* Column 1 */}
         <div>
           <img src={logo} alt="logo" className="h-12 w-auto mt-3" />
@@ -93,6 +93,9 @@ const Footer = () => {
             />
           </div>
         </div>
+      </div>
+      <div className="text-center mt-8 mb-0 text-gray-700">
+        <h6>all trademarks are the property of their respective owners. All right reversed (India) pvt.ltd.</h6>
       </div>
     </footer>
   );

@@ -1,3 +1,4 @@
+import AsideFooter from "./Components/Footer/AsideFooter";
 import Footer from "./Components/Footer/footer";
 import CategoryCompany from "./Components/Main/Category";
 import MainHead from "./Components/Main/main";
@@ -16,6 +17,7 @@ function App() {
       <TopCompanies />
       <JobCompanines />
       <SponsorCompaines />
+      <AsideFooter />
       <Footer />
       </div>
     </>
