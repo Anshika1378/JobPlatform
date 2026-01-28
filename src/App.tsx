@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="bg-blue-50">
+      <div className="bg-blue-50 relative z-0">
         <MainHead />
       <CategoryCompany />
       <TopCompanies />

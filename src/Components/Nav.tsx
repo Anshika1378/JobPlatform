@@ -5,7 +5,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import logo from "../assets/media/New_Brand_logo_-_16060-removebg.png";
+import logo from "../assets/media/New_Brand_logo_-_16060-removebg.png"; 
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +20,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-white shadow-md px-4 sm:px-8 py-3 relative">
+    <nav className="w-full bg-white shadow-md px-4 sm:px-8 py-3 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between relative">
         {/* LEFT – Logo */}
         <div className="flex ml-[50px] items-center translate-x-[30%]">
