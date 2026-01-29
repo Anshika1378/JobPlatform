@@ -7,19 +7,29 @@ import SponsorCompaines from "./Components/Sponsor/sponsorCompanies";
 import JobCompanines from "./Components/Top/jobavailable";
 import TopCompanies from "./Components/Top/TopCompanies";
 
+import { Routes, Route } from 'react-router-dom';
+import Register from "./Components/Authentication/register";
+import Verification from "./Components/Authentication/verification";
+
 function App() {
   return (
     <>
       <Navbar />
-      <div className="bg-blue-50 relative z-0">
-        <MainHead />
-      <CategoryCompany />
-      <TopCompanies />
-      <JobCompanines />
-      <SponsorCompaines />
-      <AsideFooter />
-      <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={
+          <div className="bg-blue-50 relative z-0">
+            <MainHead />
+            <CategoryCompany />
+            <TopCompanies />
+            <JobCompanines />
+            <SponsorCompaines />
+            <AsideFooter />
+            <Footer />
+          </div>
+        } />
+        <Route path="/register" element={<Register />} />
+        <Route path="/verification" element={<Verification />} />
+      </Routes>
     </>
   )
 }

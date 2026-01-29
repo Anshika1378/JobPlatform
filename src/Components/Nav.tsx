@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dropdown } from "antd";
 import {
   ChevronDownIcon,
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import logo from "../assets/media/New_Brand_logo_-_16060-removebg.png"; 
+import logo from "../assets/media/New_Brand_logo_-_16060-removebg.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ function Navbar() {
   const [jobCompany, setJobCompany] = useState(false);
   const [jobServices, setJobServices] = useState(false);
   const [jobResources, setJobResources] = useState(false);
+  const navigate = useNavigate();
 
   const employerItems = [
     { key: "1", label: <a href="#">Buy Online</a> },
@@ -195,23 +197,23 @@ function Navbar() {
           </div>
 
           {/* Resources */}
-         <div className="relative" onMouseEnter={() => setJobResources(true)} onMouseLeave={() => setJobResources(false)}>
-           <h1 className="cursor-pointer text-gray-700 hover:text-black font-medium border-b-2 border-transparent hover:border-blue-800 pb-1">
-            Resources
-          </h1>
-          {jobResources && (
-            <div className="absolute top-10 left-0 w-[350px] bg-white shadow-xl rounded-xl p-6 grid  gap-6 ">
-              <div className="flex flex-col">
-                <ul className="space-y-2 text-sm text-gray-600 mb-5">
-                  <li>Jobiffi Blogs</li>
-                  <li>AI interview coach</li>
-                  <li>News alert</li>
-                  <li>Events & Customer </li>
-                </ul>
+          <div className="relative" onMouseEnter={() => setJobResources(true)} onMouseLeave={() => setJobResources(false)}>
+            <h1 className="cursor-pointer text-gray-700 hover:text-black font-medium border-b-2 border-transparent hover:border-blue-800 pb-1">
+              Resources
+            </h1>
+            {jobResources && (
+              <div className="absolute top-10 left-0 w-[350px] bg-white shadow-xl rounded-xl p-6 grid  gap-6 ">
+                <div className="flex flex-col">
+                  <ul className="space-y-2 text-sm text-gray-600 mb-5">
+                    <li>Jobiffi Blogs</li>
+                    <li>AI interview coach</li>
+                    <li>News alert</li>
+                    <li>Events & Customer </li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          )}
-         </div>
+            )}
+          </div>
         </div>
 
         {/* RIGHT – Buttons */}
@@ -220,7 +222,10 @@ function Navbar() {
             Login
           </button>
 
-          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold">
+          <button
+            onClick={() => navigate('/register')}
+            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold"
+          >
             Register
           </button>
 
