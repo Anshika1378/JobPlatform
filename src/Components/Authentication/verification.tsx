@@ -11,7 +11,8 @@ const Verification = () => {
     const [timer, setTimer] = useState(30);
     const [isEditing, setIsEditing] = useState(false);
     const [showExitModal, setShowExitModal] = useState(false);
-    const [mobileNumber, setMobileNumber] = useState(location.state?.mobileNumber || "");
+
+    const [email, setEmail] = useState(location.state?.email || "");
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
     useEffect(() => {
@@ -60,17 +61,17 @@ const Verification = () => {
                 <div className="max-w-6xl w-full flex flex-col md:flex-row gap-8">
 
                     {/* Left Side - Verification Form */}
-                    <div className="flex-1 max-w-2xl p-8">
+                    <div className="flex-1 max-w-3xl p-8">
                         {!isEditing ? (
                             <>
-                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Verify mobile number</h2>
+                                <h2 className="text-2xl font-bold text-gray-900 mb-6">Verify Email</h2>
 
                                 <div className="mb-8">
                                     <p className="text-sm text-gray-600 mb-6 flex items-center gap-2">
-                                        Jobiffi just sent a text message with verification code to <span className="font-semibold text-gray-900">{mobileNumber}</span>
+                                        Jobiffi just sent an email with verification code to <span className="font-semibold text-gray-900">{email}</span>
                                         <button
                                             onClick={() => setIsEditing(true)}
-                                            className="text-blue-600 hover:text-blue-700"
+                                            className="text-blue-600 hover:text-blue-700 cursor-pointer"
                                         >
                                             <PencilSquareIcon className="w-4 h-4" />
                                         </button>
@@ -99,7 +100,7 @@ const Verification = () => {
                                                 <p>Didn't receive code?</p>
                                                 <button
                                                     onClick={() => setTimer(30)}
-                                                    className="text-blue-600 font-semibold hover:text-blue-700 cursor-pointer transition-all"
+                                                    className="cursor-pointer text-blue-600 font-semibold hover:text-blue-700 transition-all"
                                                 >
                                                     Resend OTP
                                                 </button>
@@ -119,22 +120,22 @@ const Verification = () => {
                             </>
                         ) : (
                             <div className="animate-fade-in">
-                                <h2 className="text-2xl font-bold text-gray-900 mb-1">Edit mobile number</h2>
-                                <p className="text-sm text-gray-500 mb-8">Recruiters will contact you on this number</p>
+                                <h2 className="text-2xl font-bold text-gray-900 mb-1">Edit email</h2>
+                                <p className="text-sm text-gray-500 mb-8">Recruiters will contact you on this email</p>
 
                                 <div className="mb-6">
                                     <label className="block text-sm font-bold text-gray-900 mb-2">
-                                        Mobile Number
+                                        Email
                                     </label>
                                     <div className="relative">
                                         <input
                                             type="text"
-                                            value={mobileNumber}
-                                            onChange={(e) => setMobileNumber(e.target.value)}
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             className="block w-full rounded-xl border border-gray-200 px-4 py-3 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm placeholder-gray-400 shadow-sm"
                                         />
                                     </div>
-                                    <p className="mt-2 text-xs text-gray-400">We will send the verification code to this number</p>
+                                    <p className="mt-2 text-xs text-gray-400">We will send the verification code to this email</p>
                                 </div>
 
                                 <div className="flex items-center gap-4">
@@ -144,13 +145,13 @@ const Verification = () => {
                                             setTimer(30);
                                             setOtp(["", "", "", ""]);
                                         }}
-                                        className="rounded-full bg-blue-600 px-8 py-2.5 text-sm font-bold text-white hover:bg-blue-700 transition shadow-md"
+                                        className="cursor-pointer rounded-full bg-blue-600 px-8 py-2.5 text-sm font-bold text-white hover:bg-blue-700 transition shadow-md"
                                     >
                                         Send OTP
                                     </button>
                                     <button
                                         onClick={() => setIsEditing(false)}
-                                        className="text-sm font-bold text-blue-600 hover:text-blue-700 px-4 py-2"
+                                        className="cursor-pointer text-sm font-bold text-blue-600 hover:text-blue-700 px-4 py-2"
                                     >
                                         Cancel
                                     </button>
@@ -190,7 +191,7 @@ const Verification = () => {
                     <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl p-8 relative animate-fade-in">
                         <button
                             onClick={() => setShowExitModal(false)}
-                            className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
+                            className="cursor-pointer absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
                         >
                             <XMarkIcon className="w-6 h-6" />
                         </button>
@@ -208,13 +209,13 @@ const Verification = () => {
                                 <div className="flex items-center justify-end gap-4">
                                     <button
                                         onClick={() => navigate('/register')}
-                                        className="text-base font-bold text-gray-900 hover:text-gray-700 px-4 py-2"
+                                        className="cursor-pointer text-base font-bold text-gray-900 hover:text-gray-700 px-4 py-2"
                                     >
                                         Be Ignored
                                     </button>
                                     <button
                                         onClick={() => setShowExitModal(false)}
-                                        className="bg-blue-600 text-white text-base font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition"
+                                        className="cursor-pointer bg-blue-600 text-white text-base font-bold px-8 py-3 rounded-full hover:bg-blue-700 transition"
                                     >
                                         Complete Profile
                                     </button>

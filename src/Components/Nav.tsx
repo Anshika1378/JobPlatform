@@ -218,13 +218,13 @@ function Navbar() {
 
         {/* RIGHT – Buttons */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white transition font-semibold">
+          <button className="cursor-pointer px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white transition font-semibold">
             Login
           </button>
 
           <button
             onClick={() => navigate('/register')}
-            className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold"
+            className="cursor-pointer px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold"
           >
             Register
           </button>

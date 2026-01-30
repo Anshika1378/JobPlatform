@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { CheckCircleIcon, MapPinIcon, CloudArrowUpIcon, EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-import { FaApple, FaUserGraduate, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn, FaUserGraduate, FaWhatsapp } from "react-icons/fa";
 import registerImg from "../../assets/media/register_page.svg";
 import { MdSchool, MdWork } from "react-icons/md";
 import Footer from "../Footer/footer";
@@ -41,8 +41,8 @@ const Register = () => {
                                 <div className="flex items-center gap-4 border border-gray-300 rounded-full p-1.5 pr-6 w-max hover:shadow-md transition-shadow cursor-pointer group bg-white">
                                     <span className="text-sm font-medium text-gray-500 ml-3 group-hover:transition-colors">Continue with</span>
                                     <button className="flex items-center gap-2 border border-blue-100 rounded-full px-5 py-2 bg-white hover:bg-blue-50 transition-colors">
-                                        <FaApple className="text-xl" />
-                                        <span className="font-bold text-gray-700">Apple</span>
+                                        <FaLinkedinIn className="text-blue-500 text-xl" />
+                                        <span className="font-bold text-gray-700">LinkedIn</span>
                                     </button>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ const Register = () => {
                                 return;
                             }
                             // Proceed to verification
-                            navigate('/verification', { state: { mobileNumber: `${countryCode} ${mobile}` } });
+                            navigate('/verification', { state: { email: email } });
                         }}>
                             <div>
                                 <label htmlFor="fullname" className="block text-sm font-semibold text-gray-700 mb-1">
@@ -107,12 +107,12 @@ const Register = () => {
                                     <button
                                         type="button"
                                         onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute inset-y-0 right-0 flex items-center pr-3"
+                                        className="absolute inset-y-0 right-0 flex items-center justify-center p-3"
                                     >
                                         {showPassword ? (
-                                            <EyeSlashIcon className="h-5 w-5 text-gray-400 hover:text-gray-600" aria-hidden="true" />
+                                            <EyeSlashIcon className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" aria-hidden="true" />
                                         ) : (
-                                            <EyeIcon className="h-5 w-5 text-gray-400 hover:text-gray-600" aria-hidden="true" />
+                                            <EyeIcon className="h-5 w-5 text-gray-400 hover:text-gray-600 cursor-pointer" aria-hidden="true" />
                                         )}
                                     </button>
                                 </div>
@@ -153,6 +153,7 @@ const Register = () => {
                                         id="mobile"
                                         required
                                         value={mobile}
+                                        maxLength={10}
                                         onChange={(e) => {
                                             const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
                                             setMobile(value);
@@ -221,7 +222,7 @@ const Register = () => {
                                         </label>
                                         <div className="relative group">
                                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 transition-colors group-focus-within:text-blue-600">
-                                                <MapPinIcon className="h-5 w-5 text-gray-400 group-focus-within:text-blue-500" aria-hidden="true" />
+                                                <MapPinIcon className="h-5 w-5 text-gray-400 group-focus-within:text-orange-500" aria-hidden="true" />
                                             </div>
                                             <input
                                                 type="text"
@@ -289,7 +290,7 @@ const Register = () => {
                                 <button
                                     type="submit"
                                     disabled={!isChecked || !workStatus || (!!workStatus && !city)}
-                                    className={`flex w-fit justify-center rounded-3xl px-10 py-3 text-sm font-bold text-white shadow-sm transition
+                                    className={`cursor-pointer flex w-fit justify-center rounded-3xl px-10 py-3 text-sm font-bold text-white shadow-sm transition
                                          ${isChecked && workStatus && city ? 'bg-blue-600 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600' : 'bg-gray-400 cursor-not-allowed opacity-70'}
                                      `}
                                 >
