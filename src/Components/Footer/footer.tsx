@@ -1,23 +1,37 @@
-import { AiFillLinkedin, AiFillInstagram, AiFillFacebook } from "react-icons/ai";
+
 import logo from "../../assets/media/New_Brand_logo_-_16060-removebg.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-white py-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-        
+    <footer className="bg-white mt-10 ">
+      <div className="max-w-7xl  py-10 mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
         {/* Column 1 */}
         <div>
-          <img src={logo} alt="logo" className="h-12 w-auto" />
+          <img src={logo} alt="logo" className="h-12 w-auto mt-3" />
           <h6 className="mt-6 font-semibold">Connected with us</h6>
-          <div className="flex gap-3 mt-3">
-            <AiFillFacebook className="text-blue-500 text-xl  cursor-pointer" />
-            <AiFillInstagram className="text-pink-500 text-xl  cursor-pointer" />
-            <AiFillLinkedin className="text-blue-500 text-xl  cursor-pointer" />
+          <div className="flex items-center gap-3 mt-3">
             <img
-              src="https://static.naukimg.com/s/0/0/i/new-homepage/twitter_v1.svg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb-ddIzltfqrD7r7l7bEUKu1ekFwv5C7c7ow&s"
+              alt="facebook"
+              className="h-7 w-7 object-contain"
+            />
+
+            <img
+              src="https://img.freepik.com/premium-psd/instagram-logo-social-media-icon_705838-13489.jpg?semt=ais_hybrid&w=740&q=80"
+              alt="instagram"
+              className="h-7 w-7 object-contain"
+            />
+
+            <img
+              src="https://e7.pngegg.com/pngimages/524/809/png-clipart-computer-icons-resume-linkedin-logo-job-hunting-others-blue-angle-thumbnail.png"
+              alt="linkedin"
+              className="h-7 w-7 object-contain"
+            />
+
+            <img
+              src="https://img.freepik.com/free-vector/new-2023-twitter-logo-x-icon-design_1017-45418.jpg?semt=ais_hybrid&w=740&q=80"
               alt="twitter"
-              className="h-4 bg-black mt-0 cursor-pointer"
+              className="h-5 w-5 object-contain"
             />
           </div>
         </div>
@@ -47,16 +61,22 @@ const Footer = () => {
         <div>
           <ul className="mt-3 space-y-2 text-gray-600">
             <li className="hover:text-blue-900 cursor-pointer">Help Center</li>
-            <li className="hover:text-blue-900 cursor-pointer">Privacy Policy</li>
-            <li className="hover:text-blue-900 cursor-pointer">Terms & conditions</li>
+            <li className="hover:text-blue-900 cursor-pointer">
+              Privacy Policy
+            </li>
+            <li className="hover:text-blue-900 cursor-pointer">
+              Terms & conditions
+            </li>
             <li className="hover:text-blue-900 cursor-pointer">Fraud alert</li>
-            <li className="hover:text-blue-900 cursor-pointer">Trust & Safety</li>
+            <li className="hover:text-blue-900 cursor-pointer">
+              Trust & Safety
+            </li>
           </ul>
         </div>
 
         {/* Column 5 */}
         <div>
-          <h6 className="text-black font-semibold">Get the App today</h6>
+          <h6 className="text-black font-semibold mt-3">Get the App today</h6>
           <p className="text-gray-600 text-sm mt-2">
             Trusted by 50,000 + Job seekers
           </p>
@@ -73,7 +93,9 @@ const Footer = () => {
             />
           </div>
         </div>
-
+      </div>
+      <div className="text-center mt-8 mb-0 text-gray-700">
+        <h6>all trademarks are the property of their respective owners. All right reversed (India) pvt.ltd.</h6>
       </div>
     </footer>
   );

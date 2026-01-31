@@ -54,9 +54,16 @@ function MainHead() {
   const [experienceOpen, setExperienceOpen] = useState(false);
   const experienceRef = useRef<HTMLDivElement | null>(null);
 
+<<<<<<< HEAD
   // ✅ ADDED: Selected experience state
   const [selectedExperience, setSelectedExperience] = useState("");
 
+=======
+  // ✅ Selected experience (FIX)
+  const [selectedExperience, setSelectedExperience] = useState("");
+
+  // 🔹 Filtered locations
+>>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
   const filteredLocations =
     locationSearch.trim().length > 0
       ? locations.filter((loc) =>
@@ -93,7 +100,7 @@ function MainHead() {
     <div className="container mx-auto px-3 flex flex-col items-center">
       {/* Badge */}
       <h1 className="mt-14 rounded-2xl border-2 border-blue-700 bg-blue-100 text-blue-600 font-bold px-4">
-        1+ jobs available
+        50,000+ jobs available
       </h1>
 
       {/* Heading */}
@@ -105,10 +112,9 @@ function MainHead() {
       </h1>
 
       {/* Subtitle */}
-      <p className="mt-2 text-base sm:text-sm text-center">
-        Discover opportunities from top companies and kickstart your career
-        <br />
-        journey
+      <p className="mt-2 text-base sm:text-sm text-center font-bold">
+        Discover opportunities from top companies and <br />kickstart your career
+        
       </p>
 
       {/* 🔍 Search Bar */}
@@ -144,7 +150,7 @@ function MainHead() {
                   <div
                     key={exp}
                     onClick={() => {
-                      setSelectedExperience(exp); // ✅ ADDED
+                      setSelectedExperience(exp);
                       setExperienceOpen(false);
                     }}
                     className="px-4 py-2 text-sm cursor-pointer hover:bg-blue-50"
@@ -158,7 +164,11 @@ function MainHead() {
 
           <div className="h-6 w-px bg-gray-200"></div>
 
+<<<<<<< HEAD
           {/* 📍 Location (Searchable + Outside Click Close) */}
+=======
+          {/* 📍 Location */}
+>>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
           <div
             ref={locationRef}
             className="relative min-w-[180px] flex-1"
@@ -196,7 +206,17 @@ function MainHead() {
           </div>
 
           {/* Search Button */}
+<<<<<<< HEAD
           <button className="min-w-[120px] h-10 sm:h-12 px-5 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-semibold text-sm rounded-r-2xl hover:from-blue-800 hover:to-blue-700 transition">
+=======
+          <button
+            onClick={() => {
+              console.log("Experience:", selectedExperience);
+              console.log("Location:", locationSearch);
+            }}
+            className="min-w-[120px] h-10 sm:h-12 px-5 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-semibold text-sm rounded-r-2xl hover:from-blue-800 hover:to-blue-700 transition"
+          >
+>>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
             Search
           </button>
         </div>
@@ -206,3 +226,4 @@ function MainHead() {
 }
 
 export default MainHead;
+

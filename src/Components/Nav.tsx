@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Dropdown } from "antd";
 import {
   ChevronDownIcon,
@@ -13,6 +14,7 @@ function Navbar() {
   const [jobCompany, setJobCompany] = useState(false);
   const [jobServices, setJobServices] = useState(false);
   const [jobResources, setJobResources] = useState(false);
+  const navigate = useNavigate();
 
   const employerItems = [
     { key: "1", label: <a href="#">Buy Online</a> },
@@ -20,11 +22,13 @@ function Navbar() {
   ];
 
   return (
-    <nav className="w-full bg-white shadow-md px-4 sm:px-8 py-3 relative">
+    <nav className="w-full bg-white shadow-md px-4 sm:px-8 py-3 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between relative">
         {/* LEFT – Logo */}
         <div className="flex ml-[50px] items-center translate-x-[30%]">
-          <img src={logo} alt="Logo" className="h-12 w-auto" />
+          <a href="/">
+            <img src={logo} alt="Logo" className="h-12 w-auto" />
+          </a>
         </div>
 
         {/* CENTER – Desktop Menu */}
@@ -40,7 +44,7 @@ function Navbar() {
             </h1>
             {jobsOpen && (
               <div className="absolute top-10 left-0 w-[650px] bg-white shadow-xl rounded-xl p-6 grid grid-cols-3 gap-6 z-50">
-                <div>
+                <div className="border-r  border-gray-200 pr-4">
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Job Categories
                   </h2>
@@ -53,8 +57,9 @@ function Navbar() {
                     <li>HR Jobs</li>
                     <li>Engineering Jobs</li>
                   </ul>
+
                 </div>
-                <div>
+                <div className="border-r border-gray-200 pr-4">
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Jobs in Demand
                   </h2>
@@ -95,7 +100,7 @@ function Navbar() {
             </h1>
             {jobCompany && (
               <div className="absolute top-10 left-0 w-[650px] bg-white shadow-xl rounded-xl p-6 grid grid-cols-3 gap-6 z-50">
-                <div>
+                <div className="border-r border-gray-200 pr-4">
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Explore Categories
                   </h2>
@@ -107,7 +112,7 @@ function Navbar() {
                     <li>Internet</li>
                   </ul>
                 </div>
-                <div>
+                <div className="border-r border-gray-200 pr-4">
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Explore collections
                   </h2>
@@ -145,7 +150,7 @@ function Navbar() {
             </h1>
             {jobServices && (
               <div className="absolute top-10 left-0 w-[650px] bg-white shadow-xl rounded-xl p-6 grid grid-cols-3 gap-6 z-50">
-                <div className="flex flex-col">
+                <div className="flex flex-col border-r border-gray-200 pr-4">
                   {/* First Section */}
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Resume Writing
@@ -167,7 +172,7 @@ function Navbar() {
                   </ul>
                 </div>
 
-                <div className="flex flex-col">
+                <div className="flex flex-col border-r border-gray-200 pr-4">
                   <h2 className="font-semibold text-blue-900 mb-3">
                     Get recruiter's attention
                   </h2>
@@ -195,32 +200,36 @@ function Navbar() {
           </div>
 
           {/* Resources */}
-         <div className="relative" onMouseEnter={() => setJobResources(true)} onMouseLeave={() => setJobResources(false)}>
-           <h1 className="cursor-pointer text-gray-700 hover:text-black font-medium border-b-2 border-transparent hover:border-blue-800 pb-1">
-            Resources
-          </h1>
-          {jobResources && (
-            <div className="absolute top-10 left-0 w-[350px] bg-white shadow-xl rounded-xl p-6 grid  gap-6 ">
-              <div className="flex flex-col">
-                <ul className="space-y-2 text-sm text-gray-600 mb-5">
-                  <li>Jobiffi Blogs</li>
-                  <li>AI interview coach</li>
-                  <li>News alert</li>
-                  <li>Events & Customer </li>
-                </ul>
+          <div className="relative" onMouseEnter={() => setJobResources(true)} onMouseLeave={() => setJobResources(false)}>
+            <h1 className="cursor-pointer text-gray-700 hover:text-black font-medium border-b-2 border-transparent hover:border-blue-800 pb-1">
+              Resources
+            </h1>
+            {jobResources && (
+              <div className="absolute top-10 left-0 w-[350px] bg-white shadow-xl rounded-xl p-6 grid  gap-6 ">
+                <div className="flex flex-col">
+                  <ul className="space-y-2 text-sm text-gray-600 mb-5">
+                    <li>Jobiffi Blogs</li>
+                    <li>AI interview coach</li>
+                    <li>News alert</li>
+                    <li>Events </li>
+                    <li>Customer Reviews</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          )}
-         </div>
+            )}
+          </div>
         </div>
 
         {/* RIGHT – Buttons */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white transition font-semibold">
+          <button className="cursor-pointer px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl border border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white transition font-semibold">
             Login
           </button>
 
-          <button className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold">
+          <button
+            onClick={() => navigate('/register')}
+            className="cursor-pointer px-3  py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-gradient-to-r from-blue-800 via-blue-900 to-blue-900 text-white font-semibold"
+          >
             Register
           </button>
 

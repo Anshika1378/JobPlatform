@@ -60,7 +60,7 @@ const JobCompanies = () => {
             <img
               src="https://static.naukimg.com/s/0/0/i/role-collection-ot.png"
               alt="Jobs Illustration"
-              className="h-40 md:h-52 w-auto"
+              className="h-40 md:h-60 w-auto"
             />
 
             <h1 className="font-bold text-2xl md:text-3xl">
