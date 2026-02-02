@@ -54,16 +54,10 @@ function MainHead() {
   const [experienceOpen, setExperienceOpen] = useState(false);
   const experienceRef = useRef<HTMLDivElement | null>(null);
 
-<<<<<<< HEAD
-  // ✅ ADDED: Selected experience state
-  const [selectedExperience, setSelectedExperience] = useState("");
-
-=======
-  // ✅ Selected experience (FIX)
+  // ✅ Selected experience state
   const [selectedExperience, setSelectedExperience] = useState("");
 
   // 🔹 Filtered locations
->>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
   const filteredLocations =
     locationSearch.trim().length > 0
       ? locations.filter((loc) =>
@@ -76,17 +70,11 @@ function MainHead() {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
 
-      if (
-        locationRef.current &&
-        !locationRef.current.contains(target)
-      ) {
+      if (locationRef.current && !locationRef.current.contains(target)) {
         setLocationOpen(false);
       }
 
-      if (
-        experienceRef.current &&
-        !experienceRef.current.contains(target)
-      ) {
+      if (experienceRef.current && !experienceRef.current.contains(target)) {
         setExperienceOpen(false);
       }
     };
@@ -113,8 +101,8 @@ function MainHead() {
 
       {/* Subtitle */}
       <p className="mt-2 text-base sm:text-sm text-center font-bold">
-        Discover opportunities from top companies and <br />kickstart your career
-        
+        Discover opportunities from top companies and <br />
+        kickstart your career
       </p>
 
       {/* 🔍 Search Bar */}
@@ -130,13 +118,10 @@ function MainHead() {
             />
           </div>
 
-          <div className="h-6 w-px bg-gray-200"></div>
+          <div className="h-6 w-px bg-gray-200" />
 
           {/* Experience */}
-          <div
-            ref={experienceRef}
-            className="relative min-w-[160px] flex-1"
-          >
+          <div ref={experienceRef} className="relative min-w-[160px] flex-1">
             <div
               onClick={() => setExperienceOpen((prev) => !prev)}
               className="h-10 sm:h-12 px-3 flex items-center cursor-pointer text-sm text-gray-500"
@@ -162,17 +147,10 @@ function MainHead() {
             )}
           </div>
 
-          <div className="h-6 w-px bg-gray-200"></div>
+          <div className="h-6 w-px bg-gray-200" />
 
-<<<<<<< HEAD
-          {/* 📍 Location (Searchable + Outside Click Close) */}
-=======
           {/* 📍 Location */}
->>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
-          <div
-            ref={locationRef}
-            className="relative min-w-[180px] flex-1"
-          >
+          <div ref={locationRef} className="relative min-w-[180px] flex-1">
             <div className="flex items-center h-10 sm:h-12 pl-9 pr-3">
               <CiLocationOn className="absolute left-3 text-gray-400 text-lg" />
               <input
@@ -206,9 +184,6 @@ function MainHead() {
           </div>
 
           {/* Search Button */}
-<<<<<<< HEAD
-          <button className="min-w-[120px] h-10 sm:h-12 px-5 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-semibold text-sm rounded-r-2xl hover:from-blue-800 hover:to-blue-700 transition">
-=======
           <button
             onClick={() => {
               console.log("Experience:", selectedExperience);
@@ -216,7 +191,6 @@ function MainHead() {
             }}
             className="min-w-[120px] h-10 sm:h-12 px-5 bg-gradient-to-r from-blue-900 to-blue-800 text-white font-semibold text-sm rounded-r-2xl hover:from-blue-800 hover:to-blue-700 transition"
           >
->>>>>>> 055f6bb6b44e09b05bf4aba0d93862ce99d14518
             Search
           </button>
         </div>
@@ -226,4 +200,3 @@ function MainHead() {
 }
 
 export default MainHead;
-
