@@ -51,7 +51,11 @@ function MainHead() {
 
   const [experienceOpen, setExperienceOpen] = useState(false);
   const experienceRef = useRef<HTMLDivElement | null>(null);
+
+
+  // ✅ Selected experience state
   const [selectedExperience, setSelectedExperience] = useState("");
+
 
   const filteredLocations =
     locationSearch.trim().length > 0
@@ -114,7 +118,7 @@ function MainHead() {
             />
           </div>
 
-          <div className="h-6 w-px bg-gray-200"></div>
+          <div className="h-6 w-px bg-gray-200" />
 
           {/* Experience */}
           <div ref={experienceRef} className="relative min-w-[160px] flex-1">
@@ -143,11 +147,17 @@ function MainHead() {
             )}
           </div>
 
-          <div className="h-6 w-px bg-gray-200"></div>
+          <div className="h-6 w-px bg-gray-200" />
+
+
+          {/* 📍 Location */}
+          <div ref={locationRef} className="relative min-w-[180px] flex-1">
+            <div className="flex items-center h-10 sm:h-12 pl-9 pr-3">
 
           {/* Location */}
           <div ref={locationRef} className="relative min-w-[180px] flex-1">
             <div className="flex items-center h-10 sm:h-12 pl-9 pr-3 relative">
+
               <CiLocationOn className="absolute left-3 text-gray-400 text-lg" />
               <input
                 type="text"
