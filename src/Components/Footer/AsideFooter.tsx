@@ -1,3 +1,4 @@
+import img from "../../assets/media/img.jpeg"
 export default function AsideFooter() {
   return (
     <>
@@ -13,7 +14,7 @@ export default function AsideFooter() {
           <div className="relative mt-5 w-full max-w-sm">
             <input
               type="text"
-              placeholder="Enter mobile number.."
+              placeholder="Enter email......"
               className="w-full border border-gray-600 rounded-full py-2 pl-3 pr-20 outline-none"
             />
 
@@ -31,7 +32,8 @@ export default function AsideFooter() {
           </div>
         </div>
         <div className="md:w-1/2 flex justify-center ">
-            <img src="https://static.naukimg.com/s/0/0/i/download-app-link/MaskGroupOneTheme.png" alt="" className="h-60"/>
+            {/* <img src="https://static.naukimg.com/s/0/0/i/download-app-link/MaskGroupOneTheme.png" alt="" className="h-60"/> */}
+            <img src={img} alt="" className="h-60"/>
         </div>
       </div>
     </>

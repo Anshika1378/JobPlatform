@@ -44,20 +44,19 @@ const experienceOptions = [
   "25+ Years",
 ];
 
-function MainHead() {
-  // 🔹 Location dropdown state
+export default function MainHead() {
   const [locationOpen, setLocationOpen] = useState(false);
   const [locationSearch, setLocationSearch] = useState("");
   const locationRef = useRef<HTMLDivElement | null>(null);
 
-  // 🔹 Experience dropdown state
   const [experienceOpen, setExperienceOpen] = useState(false);
   const experienceRef = useRef<HTMLDivElement | null>(null);
+
 
   // ✅ Selected experience state
   const [selectedExperience, setSelectedExperience] = useState("");
 
-  // 🔹 Filtered locations
+
   const filteredLocations =
     locationSearch.trim().length > 0
       ? locations.filter((loc) =>
@@ -108,6 +107,7 @@ function MainHead() {
       {/* 🔍 Search Bar */}
       <div className="mt-6 w-full max-w-4xl rounded-2xl shadow-lg">
         <div className="w-full bg-white rounded-2xl border border-gray-200 flex items-center">
+          
           {/* Skills */}
           <div className="relative flex items-center min-w-[220px] flex-1">
             <CiSearch className="absolute left-3 text-gray-400 text-lg" />
@@ -149,9 +149,15 @@ function MainHead() {
 
           <div className="h-6 w-px bg-gray-200" />
 
+
           {/* 📍 Location */}
           <div ref={locationRef} className="relative min-w-[180px] flex-1">
             <div className="flex items-center h-10 sm:h-12 pl-9 pr-3">
+
+          {/* Location */}
+          <div ref={locationRef} className="relative min-w-[180px] flex-1">
+            <div className="flex items-center h-10 sm:h-12 pl-9 pr-3 relative">
+
               <CiLocationOn className="absolute left-3 text-gray-400 text-lg" />
               <input
                 type="text"
@@ -195,8 +201,10 @@ function MainHead() {
           </button>
         </div>
       </div>
+      </div>
+    </div>
     </div>
   );
 }
 
-export default MainHead;
+
