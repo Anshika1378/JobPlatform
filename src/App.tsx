@@ -2,6 +2,16 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Nav";
 
+import Footer from "./Components/Footer/footer";
+import AsideFooter from "./Components/Footer/AsideFooter";
+
+import MainHead from "./Components/Main/main";
+import CategoryCompany from "./Components/Main/Category";
+import TopCompanies from "./Components/Top/TopCompanies";
+import JobCompanines from "./Components/Top/jobavailable";
+import SponsorCompaines from "./Components/Sponsor/sponsorCompanies";
+
+
 import MainHead from "./Components/Main/main";
 import CategoryCompany from "./Components/Main/Category";
 
@@ -15,11 +25,67 @@ import SponsorCompaines from "./Components/Sponsor/sponsorCompanies";
 import AsideFooter from "./Components/Footer/AsideFooter";
 import Footer from "./Components/Footer/footer";
 
+
 import Register from "./Components/Authentication/register";
 import Verification from "./Components/Authentication/verification";
 
+import TermsConditions from "./Components/pages/TermsConditions";
+import PrivacyPolicy from "./Components/pages/PrivacyPolicy";
+// import LegalFooter from "./Components/Footer/LegalFooter";
+
+
 function App() {
   return (
+
+    <Routes>
+
+      {/* HOME PAGE */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Navbar />
+            <div className="bg-blue-50">
+              <MainHead />
+              <CategoryCompany />
+              <TopCompanies />
+              <JobCompanines />
+              <SponsorCompaines />
+              <AsideFooter />
+              <Footer />
+            </div>
+          </>
+        }
+      />
+
+      {/* AUTH */}
+      <Route path="/register" element={<Register />} />
+      <Route path="/verification" element={<Verification />} />
+
+      {/* TERMS — CLEAN LEGAL PAGE */}
+      <Route
+        path="/terms-conditions"
+        element={
+          <div className="bg-blue-50 min-h-screen">
+            <TermsConditions />
+            {/* <LegalFooter /> */}
+          </div>
+        }
+      />
+
+      {/* PRIVACY — CLEAN LEGAL PAGE */}
+      <Route
+        path="/privacy-policy"
+        element={
+          <div className="bg-blue-50 min-h-screen">
+            <PrivacyPolicy />
+            {/* <LegalFooter /> */}
+          </div>
+        }
+      />
+
+    </Routes>
+
     <>
       <Navbar />
 
@@ -53,6 +119,7 @@ function App() {
         <Route path="/verification" element={<Verification />} />
       </Routes>
     </>
+
   );
 }
 
