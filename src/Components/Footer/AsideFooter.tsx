@@ -14,7 +14,7 @@ export default function AsideFooter() {
           <div className="relative mt-5 w-full max-w-sm">
             <input
               type="text"
-              placeholder="Enter mobile number.."
+              placeholder="Enter email......"
               className="w-full border border-gray-600 rounded-full py-2 pl-3 pr-20 outline-none"
             />
 
