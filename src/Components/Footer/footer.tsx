@@ -8,7 +8,9 @@ const Footer = () => {
       <div className="max-w-7xl  py-10 mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
         {/* Column 1 */}
         <div>
-          <img src={logo} alt="logo" className="h-12 w-auto mt-3" />
+          <a href="/">
+            <img src={logo} alt="logo" className="h-12 w-auto mt-3" />
+          </a>
           <h6 className="mt-6 font-semibold">Connected with us</h6>
           <div className="flex items-center gap-2 mt-3">
             <a href="http://facebook.com/Jobiffi">
