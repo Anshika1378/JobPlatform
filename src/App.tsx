@@ -1,36 +1,74 @@
-import AsideFooter from "./Components/Footer/AsideFooter";
-import Footer from "./Components/Footer/footer";
-import CategoryCompany from "./Components/Main/Category";
-import MainHead from "./Components/Main/main";
-import Navbar from "./Components/Nav";
-import SponsorCompaines from "./Components/Sponsor/sponsorCompanies";
-import JobCompanines from "./Components/Top/jobavailable";
-import TopCompanies from "./Components/Top/TopCompanies";
+import { Routes, Route } from "react-router-dom";
 
-import { Routes, Route } from 'react-router-dom';
+import Navbar from "./Components/Nav";
+import Footer from "./Components/Footer/footer";
+import AsideFooter from "./Components/Footer/AsideFooter";
+
+import MainHead from "./Components/Main/main";
+import CategoryCompany from "./Components/Main/Category";
+import TopCompanies from "./Components/Top/TopCompanies";
+import JobCompanines from "./Components/Top/jobavailable";
+import SponsorCompaines from "./Components/Sponsor/sponsorCompanies";
+
 import Register from "./Components/Authentication/register";
 import Verification from "./Components/Authentication/verification";
 
+import TermsConditions from "./Components/pages/TermsConditions";
+import PrivacyPolicy from "./Components/pages/PrivacyPolicy";
+// import LegalFooter from "./Components/Footer/LegalFooter";
+
+
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={
-          <div className="bg-blue-50 relative z-0">
-            <MainHead />
-            <CategoryCompany />
-            <TopCompanies />
-            <JobCompanines />
-            <SponsorCompaines />
-            <AsideFooter />
-            <Footer />
+    <Routes>
+
+      {/* HOME PAGE */}
+      <Route
+        path="/"
+        element={
+          <>
+            <Navbar />
+            <div className="bg-blue-50">
+              <MainHead />
+              <CategoryCompany />
+              <TopCompanies />
+              <JobCompanines />
+              <SponsorCompaines />
+              <AsideFooter />
+              <Footer />
+            </div>
+          </>
+        }
+      />
+
+      {/* AUTH */}
+      <Route path="/register" element={<Register />} />
+      <Route path="/verification" element={<Verification />} />
+
+      {/* TERMS — CLEAN LEGAL PAGE */}
+      <Route
+        path="/terms-conditions"
+        element={
+          <div className="bg-blue-50 min-h-screen">
+            <TermsConditions />
+            {/* <LegalFooter /> */}
           </div>
-        } />
-        <Route path="/register" element={<Register />} />
-        <Route path="/verification" element={<Verification />} />
-      </Routes>
-    </>
-  )
+        }
+      />
+
+      {/* PRIVACY — CLEAN LEGAL PAGE */}
+      <Route
+        path="/privacy-policy"
+        element={
+          <div className="bg-blue-50 min-h-screen">
+            <PrivacyPolicy />
+            {/* <LegalFooter /> */}
+          </div>
+        }
+      />
+
+    </Routes>
+  );
 }
+
 export default App;

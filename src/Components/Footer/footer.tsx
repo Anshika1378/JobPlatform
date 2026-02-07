@@ -1,6 +1,7 @@
 
 import logo from "../../assets/media/New_Brand_logo_-_16060-removebg.png";
 
+
 const Footer = () => {
   return (
     <footer className="bg-white mt-10 ">
@@ -58,21 +59,44 @@ const Footer = () => {
         </div>
 
         {/* Column 4 */}
-        <div>
-          <ul className="mt-3 space-y-2 text-gray-600">
-            <li className="hover:text-blue-900 cursor-pointer">Help Center</li>
-            <li className="hover:text-blue-900 cursor-pointer">
-              Privacy Policy
-            </li>
-            <li className="hover:text-blue-900 cursor-pointer">
-              Terms & conditions
-            </li>
-            <li className="hover:text-blue-900 cursor-pointer">Fraud alert</li>
-            <li className="hover:text-blue-900 cursor-pointer">
-              Trust & Safety
-            </li>
-          </ul>
-        </div>
+        {/* Column 4 */}
+{/* Column 4 */}
+<div>
+  <ul className="mt-3 space-y-2 text-gray-600">
+
+    <li className="hover:text-blue-900 cursor-pointer">
+      Help Center
+    </li>
+
+    <a
+      href="/privacy-policy"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-blue-900 cursor-pointer block"
+    >
+      Privacy Policy
+    </a>
+
+    <a
+      href="/terms-conditions"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-blue-900 cursor-pointer block"
+    >
+      Terms & conditions
+    </a>
+
+    <li className="hover:text-blue-900 cursor-pointer">
+      Fraud alert
+    </li>
+
+    <li className="hover:text-blue-900 cursor-pointer">
+      Trust & Safety
+    </li>
+
+  </ul>
+</div>
+
 
         {/* Column 5 */}
         <div>

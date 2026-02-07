@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CiLocationOn, CiSearch } from "react-icons/ci";
 
+
 // 📍 Real Job Hubs (India)
 const locations = [
   "Remote",
@@ -191,7 +192,10 @@ function MainHead() {
           </button>
         </div>
       </div>
+       {/* ROUTED PAGE CONTENT */}
+
     </div>
+     
   );
 }
 
